@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.sendroid.ynform.MainActivity">
+
+    <com.sendroid.ynform.poi.all.view.AdaptiveRecyclerView
+        app:layout_constraintTop_toTopOf="@+id/buttons_layout"
+        android:id="@+id/poi_recycler"
+        android:layout_height="400dp"
+        android:layout_width="match_parent" />
+
+    <LinearLayout
+        app:layout_constraintBottom_toBottomOf="@+id/poi_recycler"
+        android:id="@+id/buttons_layout"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            style="?buttonStyle"
+            android:id="@+id/btn_init"
+            android:text="init"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <Button
+            style="?buttonStyle"
+            android:id="@+id/btn_update"
+            android:text="update"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>
