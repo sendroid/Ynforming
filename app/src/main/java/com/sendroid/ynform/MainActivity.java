@@ -6,7 +6,7 @@ import android.view.View;
 
 import com.sendroid.ynform.poi.AbstractInformStatusModel;
 import com.sendroid.ynform.poi.PoiController;
-import com.sendroid.ynform.poi.all.view.RecyclerAdapter;
+import com.sendroid.ynform.poi.all.RecyclerAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
