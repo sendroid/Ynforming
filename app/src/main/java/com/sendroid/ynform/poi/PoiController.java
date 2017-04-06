@@ -8,30 +8,29 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
 import com.sendroid.ynform.R;
-import com.sendroid.ynform.poi.all.view.RecyclerAdapter;
-import com.sendroid.ynform.poi.all.view.RecyclerItemClickListener;
-import com.sendroid.ynform.poi.current.presenter.CurrentPresenter;
-import com.sendroid.ynform.poi.current.view.CurrentView;
-import com.sendroid.ynform.poi.current.view.CurrentViewBackground;
-import com.sendroid.ynform.poi.current.view.CurrentViewMain;
-import com.sendroid.ynform.poi.current.view.CurrentViewMap;
+import com.sendroid.ynform.poi.all.RecyclerAdapter;
+import com.sendroid.ynform.poi.all.RecyclerItemClickListener;
+import com.sendroid.ynform.poi.current.CurrentPoiContract;
+import com.sendroid.ynform.poi.current.CurrentViewBackground;
+import com.sendroid.ynform.poi.current.CurrentViewMain;
+import com.sendroid.ynform.poi.current.CurrentViewMap;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.sendroid.ynform.poi.all.view.RecyclerAdapter.PoiControllerType.TYPE_BACKGROUND;
-import static com.sendroid.ynform.poi.all.view.RecyclerAdapter.PoiControllerType.TYPE_MAIN;
-import static com.sendroid.ynform.poi.all.view.RecyclerAdapter.PoiControllerType.TYPE_MAP;
+import static com.sendroid.ynform.poi.all.RecyclerAdapter.PoiControllerType.TYPE_BACKGROUND;
+import static com.sendroid.ynform.poi.all.RecyclerAdapter.PoiControllerType.TYPE_MAIN;
+import static com.sendroid.ynform.poi.all.RecyclerAdapter.PoiControllerType.TYPE_MAP;
 
 
 /**
  * Created by sendro on 26.02.17.
  */
 
-public class PoiController implements RecyclerItemClickListener, CurrentPresenter {
+public class PoiController implements RecyclerItemClickListener, CurrentPoiContract.Presenter {
 
     private Context context;
-    private CurrentView currentView;
+    private CurrentPoiContract.View currentView;
     private RecyclerView recyclerView;
     private RecyclerAdapter recyclerViewAdapter;
     private AbstractInformStatusModel currentModel;
@@ -56,18 +55,18 @@ public class PoiController implements RecyclerItemClickListener, CurrentPresente
         }
     }
 
-    public void update(List<AbstractInformStatusModel> currentModels){
-        if(currentModels == null || currentView == null || recyclerViewAdapter == null)
+    public void update(List<AbstractInformStatusModel> newModels){
+        if(newModels == null || currentView == null || recyclerViewAdapter == null)
             return;
         informStatusModels.clear();
-        informStatusModels.addAll(currentModels);
+        informStatusModels.addAll(newModels);
         if(informStatusModels.size() > 0) {
-            AbstractInformStatusModel item = informStatusModels.get(0);
-            if (currentModel != null && currentModel.equals(item)) {
-                updateCurrent(item);
-                informStatusModels.remove(item);
+            AbstractInformStatusModel newCurrent = informStatusModels.get(0);
+            if (currentModel != null && currentModel.equals(newCurrent)) {
+                updateCurrent(newCurrent);
+                informStatusModels.remove(newCurrent);
             } else {
-                swapCurrent(item);
+                swapCurrent(newCurrent);
             }
         }
         recyclerViewAdapter.updateList(informStatusModels);
@@ -95,10 +94,12 @@ public class PoiController implements RecyclerItemClickListener, CurrentPresente
 
     @Override
     public void onItemClickListener(int position) {
-        AbstractInformStatusModel item = informStatusModels.get(position);
-        swapCurrent(item);
-        recyclerViewAdapter.updateList(informStatusModels);
         Log.d("positionClick", String.valueOf(position));
+        if(position >= 0) {
+            AbstractInformStatusModel item = informStatusModels.get(position);
+            swapCurrent(item);
+            recyclerViewAdapter.updateList(informStatusModels);
+        }
     }
 
     @Override

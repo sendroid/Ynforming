@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Ynform.iml" filepath="$PROJECT_DIR$/Ynform.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Ynforming.iml" filepath="$PROJECT_DIR$/Ynforming.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

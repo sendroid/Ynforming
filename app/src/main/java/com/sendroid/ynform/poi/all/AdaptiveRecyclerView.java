@@ -1,4 +1,4 @@
-package com.sendroid.ynform.poi.all.view;
+package com.sendroid.ynform.poi.all;
 
 import android.content.Context;
 import android.content.res.TypedArray;

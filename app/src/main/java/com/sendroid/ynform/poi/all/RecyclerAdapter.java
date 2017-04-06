@@ -1,4 +1,4 @@
-package com.sendroid.ynform.poi.all.view;
+package com.sendroid.ynform.poi.all;
 
 import android.support.annotation.IntDef;
 import android.support.v7.util.DiffUtil;
@@ -16,9 +16,9 @@ import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.sendroid.ynform.poi.all.view.RecyclerAdapter.PoiControllerType.TYPE_BACKGROUND;
-import static com.sendroid.ynform.poi.all.view.RecyclerAdapter.PoiControllerType.TYPE_MAIN;
-import static com.sendroid.ynform.poi.all.view.RecyclerAdapter.PoiControllerType.TYPE_MAP;
+import static com.sendroid.ynform.poi.all.RecyclerAdapter.PoiControllerType.TYPE_BACKGROUND;
+import static com.sendroid.ynform.poi.all.RecyclerAdapter.PoiControllerType.TYPE_MAIN;
+import static com.sendroid.ynform.poi.all.RecyclerAdapter.PoiControllerType.TYPE_MAP;
 
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {

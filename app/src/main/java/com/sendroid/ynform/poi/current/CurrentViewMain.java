@@ -1,16 +1,14 @@
-package com.sendroid.ynform.poi.current.view;
+package com.sendroid.ynform.poi.current;
 
 import com.sendroid.ynform.poi.AbstractInformStatusModel;
-import com.sendroid.ynform.poi.current.presenter.CurrentPresenter;
 
 /**
  * Created by sendro on 27.02.17.
  */
 
-public class CurrentViewBackground implements CurrentView {
+public class CurrentViewMain implements CurrentPoiContract.View {
 
-
-    public CurrentViewBackground() {
+    public CurrentViewMain() {
     }
 
     @Override
@@ -25,7 +23,6 @@ public class CurrentViewBackground implements CurrentView {
 
     @Override
     public void update(AbstractInformStatusModel informStatusModel) {
-
     }
 
 }

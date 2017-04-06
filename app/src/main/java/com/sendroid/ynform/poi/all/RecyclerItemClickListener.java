@@ -1,4 +1,4 @@
-package com.sendroid.ynform.poi.all.view;
+package com.sendroid.ynform.poi.all;
 
 /**
  * Created by Jhordan on 15/10/15.
